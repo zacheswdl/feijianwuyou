@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Button, Space, Tag, message, Statistic, Row, Col, Input } from 'antd';
+import { Card, Button, Space, message, Statistic, Row, Col } from 'antd';
 import {
   PlusOutlined,
   DeleteOutlined,
-  EditOutlined,
-  EyeOutlined,
 } from '@ant-design/icons';
 import PageHeader from '../../../components/Common/PageHeader';
 import SearchForm from '../../../components/Common/SearchForm';
@@ -197,8 +195,8 @@ const DeviceLedger: React.FC = () => {
     setEditingRecord({});
   };
 
-  const handleDelete = (record: any) => {
-    const newData = deleteItem(MODULE_KEY, record.id);
+  const handleDelete = async (record: any) => {
+    const newData = await deleteItem(MODULE_KEY, record.id);
     message.success('删除成功');
     setData(newData);
     setFilteredData(newData);

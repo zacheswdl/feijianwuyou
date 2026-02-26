@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 import { uploadFile, deleteServerFile } from '../../../utils/fileUpload';
 import FilePreview from '../../../components/Common/FilePreview';
 
-const { TextArea } = Input;
 const { Option } = Select;
 
 interface DeviceFormProps {
@@ -311,7 +310,7 @@ const DeviceForm = ({ visible, record, mode, onCancel, onSave }: DeviceFormProps
           disabled={isView}
           style={{ marginTop: 16 }}
         >
-          <Divider orientation="left">基本信息</Divider>
+          <Divider>基本信息</Divider>
           
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
             <Form.Item
@@ -504,7 +503,7 @@ const DeviceForm = ({ visible, record, mode, onCancel, onSave }: DeviceFormProps
             </Form.Item>
           </div>
 
-          <Divider orientation="left">时间信息</Divider>
+          <Divider>时间信息</Divider>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
             <Form.Item
@@ -617,7 +616,7 @@ const DeviceForm = ({ visible, record, mode, onCancel, onSave }: DeviceFormProps
             </Form.Item>
           </div>
 
-          <Divider orientation="left">设备附件</Divider>
+          <Divider>设备附件</Divider>
 
           <Form.Item
             label="相关附件"
