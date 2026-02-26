@@ -16,13 +16,13 @@ const MODULE_KEY = 'equipment_consumable_record';
 
 // 搜索字段配置
 const searchFields = [
-  { name: 'year', label: '年份', type: 'select', options: [
+  { name: 'year', label: '年份', type: 'select' as const, options: [
     { label: '2024', value: '2024' },
     { label: '2023', value: '2023' },
     { label: '2022', value: '2022' },
     { label: '2021', value: '2021' },
   ]},
-  { name: 'month', label: '月份', type: 'select', options: [
+  { name: 'month', label: '月份', type: 'select' as const, options: [
     { label: '1月', value: '1' },
     { label: '2月', value: '2' },
     { label: '3月', value: '3' },
@@ -36,11 +36,11 @@ const searchFields = [
     { label: '11月', value: '11' },
     { label: '12月', value: '12' },
   ]},
-  { name: 'location', label: '更换地点', type: 'select', options: [
+  { name: 'location', label: '更换地点', type: 'select' as const, options: [
     { label: '环检车间', value: '环检车间' },
     { label: '安检车间', value: '安检车间' },
   ]},
-  { name: 'responsiblePerson', label: '责任人', type: 'input', placeholder: '请输入责任人' },
+  { name: 'responsiblePerson', label: '责任人', type: 'input' as const, placeholder: '请输入责任人' },
 ];
 
 // 表格列配置
@@ -204,8 +204,8 @@ const ConsumableRecord: React.FC = () => {
     setEditingRecord({});
   };
 
-  const handleDelete = (record: any) => {
-    const newData = deleteItem(MODULE_KEY, record.id);
+  const handleDelete = async (record: any) => {
+    const newData = await deleteItem(MODULE_KEY, record.id);
     message.success('删除成功');
     setData(newData);
     setFilteredData(newData);

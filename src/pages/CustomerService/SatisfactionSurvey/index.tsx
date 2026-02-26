@@ -302,7 +302,7 @@ const SatisfactionSurvey: React.FC = () => {
           onDelete={handleDelete}
           rowSelection={{
             type: 'checkbox',
-            onChange: (_selectedRowKeys, selectedRows) => setSelectedRows(selectedRows),
+            onChange: (_selectedRowKeys: any, selectedRows: any) => setSelectedRows(selectedRows),
           }}
         />
       </Card>
