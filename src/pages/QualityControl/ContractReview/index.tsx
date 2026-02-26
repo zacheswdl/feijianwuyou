@@ -7,7 +7,6 @@ import DataTable from '../../../components/Common/DataTable';
 import type { ContractReviewRecord } from '../../../types/index';
 import { loadData, saveData, MODULE_KEYS } from '../../../utils/storage';
 import ReviewForm from './ReviewForm';
-import dayjs from 'dayjs';
 
 const ContractReview: React.FC = () => {
   const [data, setData] = useState<ContractReviewRecord[]>([]);
@@ -18,9 +17,9 @@ const ContractReview: React.FC = () => {
   const [modalMode, setModalMode] = useState<'add' | 'edit' | 'view'>('add');
   const [selectedRows, setSelectedRows] = useState<ContractReviewRecord[]>([]);
 
-  const loadTableData = useCallback(() => {
+  const loadTableData = useCallback(async () => {
     setLoading(true);
-    const result = loadData<ContractReviewRecord>(MODULE_KEYS.CONTRACT_REVIEW);
+    const result = await loadData<ContractReviewRecord>(MODULE_KEYS.CONTRACT_REVIEW);
     setData(result);
     setFilteredData(result);
     setLoading(false);

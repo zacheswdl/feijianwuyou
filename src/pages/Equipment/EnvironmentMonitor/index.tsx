@@ -7,7 +7,6 @@ import DataTable from '../../../components/Common/DataTable';
 import type { EnvironmentMonitorRecord } from '../../../types/index';
 import { loadData, saveData, MODULE_KEYS } from '../../../utils/storage';
 import MonitorForm from './MonitorForm';
-import dayjs from 'dayjs';
 
 const EnvironmentMonitor: React.FC = () => {
   const [data, setData] = useState<EnvironmentMonitorRecord[]>([]);
@@ -18,9 +17,9 @@ const EnvironmentMonitor: React.FC = () => {
   const [modalMode, setModalMode] = useState<'add' | 'edit' | 'view'>('add');
   const [selectedRows, setSelectedRows] = useState<EnvironmentMonitorRecord[]>([]);
 
-  const loadTableData = useCallback(() => {
+  const loadTableData = useCallback(async () => {
     setLoading(true);
-    const result = loadData<EnvironmentMonitorRecord>(MODULE_KEYS.ENVIRONMENT_MONITOR);
+    const result = await loadData<EnvironmentMonitorRecord>(MODULE_KEYS.ENVIRONMENT_MONITOR);
     setData(result);
     setFilteredData(result);
     setLoading(false);

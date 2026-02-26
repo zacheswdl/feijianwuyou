@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Modal, Form, Input, Select, DatePicker, Rate, Slider } from 'antd';
+import { Modal, Form, Input, Select, DatePicker, Rate } from 'antd';
 import type { SatisfactionSurveyRecord } from '../../../types/index';
 import dayjs from 'dayjs';
 

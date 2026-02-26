@@ -7,7 +7,6 @@ import DataTable from '../../../components/Common/DataTable';
 import type { DeviceMaintenanceRecord } from '../../../types/index';
 import { loadData, saveData, MODULE_KEYS } from '../../../utils/storage';
 import MaintenanceForm from './MaintenanceForm';
-import dayjs from 'dayjs';
 
 const DeviceMaintenance: React.FC = () => {
   const [data, setData] = useState<DeviceMaintenanceRecord[]>([]);
@@ -18,9 +17,9 @@ const DeviceMaintenance: React.FC = () => {
   const [modalMode, setModalMode] = useState<'add' | 'edit' | 'view'>('add');
   const [selectedRows, setSelectedRows] = useState<DeviceMaintenanceRecord[]>([]);
 
-  const loadTableData = useCallback(() => {
+  const loadTableData = useCallback(async () => {
     setLoading(true);
-    const result = loadData<DeviceMaintenanceRecord>(MODULE_KEYS.DEVICE_MAINTENANCE);
+    const result = await loadData<DeviceMaintenanceRecord>(MODULE_KEYS.DEVICE_MAINTENANCE);
     setData(result);
     setFilteredData(result);
     setLoading(false);

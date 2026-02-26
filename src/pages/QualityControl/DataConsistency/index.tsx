@@ -7,7 +7,6 @@ import DataTable from '../../../components/Common/DataTable';
 import type { DataConsistencyRecord } from '../../../types/index';
 import { loadData, saveData, MODULE_KEYS } from '../../../utils/storage';
 import ConsistencyForm from './ConsistencyForm';
-import dayjs from 'dayjs';
 
 const DataConsistency: React.FC = () => {
   const [data, setData] = useState<DataConsistencyRecord[]>([]);
@@ -18,9 +17,9 @@ const DataConsistency: React.FC = () => {
   const [modalMode, setModalMode] = useState<'add' | 'edit' | 'view'>('add');
   const [selectedRows, setSelectedRows] = useState<DataConsistencyRecord[]>([]);
 
-  const loadTableData = useCallback(() => {
+  const loadTableData = useCallback(async () => {
     setLoading(true);
-    const result = loadData<DataConsistencyRecord>(MODULE_KEYS.DATA_CONSISTENCY);
+    const result = await loadData<DataConsistencyRecord>(MODULE_KEYS.DATA_CONSISTENCY);
     setData(result);
     setFilteredData(result);
     setLoading(false);

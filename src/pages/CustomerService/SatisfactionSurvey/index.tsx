@@ -7,7 +7,6 @@ import DataTable from '../../../components/Common/DataTable';
 import type { SatisfactionSurveyRecord } from '../../../types/index';
 import { loadData, saveData, MODULE_KEYS } from '../../../utils/storage';
 import SurveyForm from './SurveyForm';
-import dayjs from 'dayjs';
 
 const SatisfactionSurvey: React.FC = () => {
   const [data, setData] = useState<SatisfactionSurveyRecord[]>([]);
@@ -18,9 +17,9 @@ const SatisfactionSurvey: React.FC = () => {
   const [modalMode, setModalMode] = useState<'add' | 'edit' | 'view'>('add');
   const [selectedRows, setSelectedRows] = useState<SatisfactionSurveyRecord[]>([]);
 
-  const loadTableData = useCallback(() => {
+  const loadTableData = useCallback(async () => {
     setLoading(true);
-    const result = loadData<SatisfactionSurveyRecord>(MODULE_KEYS.SATISFACTION_SURVEY);
+    const result = await loadData<SatisfactionSurveyRecord>(MODULE_KEYS.SATISFACTION_SURVEY);
     setData(result);
     setFilteredData(result);
     setLoading(false);
