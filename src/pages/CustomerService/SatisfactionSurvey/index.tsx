@@ -292,7 +292,10 @@ const SatisfactionSurvey: React.FC = () => {
           rowKey="id"
           loading={loading}
           pagination={{
+            current: 1,
             pageSize: 10,
+            total: filteredData.length,
+            onChange: () => {},
           }}
           onView={handleView}
           onEdit={handleEdit}

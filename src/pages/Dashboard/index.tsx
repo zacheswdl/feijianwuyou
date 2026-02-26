@@ -10,7 +10,6 @@ import {
   Progress,
   Button,
   Tag,
-  Divider,
 } from 'antd';
 import {
   ToolOutlined,
@@ -19,7 +18,6 @@ import {
   ExclamationCircleOutlined,
   CheckCircleOutlined,
   ClockCircleOutlined,
-  RightOutlined,
 } from '@ant-design/icons';
 import { getData } from '../../utils/storage';
 import dayjs from 'dayjs';

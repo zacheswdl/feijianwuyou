@@ -51,7 +51,7 @@ const ComplaintRecordPage: React.FC = () => {
     }
     
     if (values.handler) {
-      result = result.filter(item => item.handler.includes(values.handler));
+      result = result.filter(item => item.handler?.includes(values.handler));
     }
     
     setFilteredData(result);

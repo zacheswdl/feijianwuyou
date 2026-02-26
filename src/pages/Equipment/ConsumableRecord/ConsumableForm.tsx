@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 import { uploadFile, deleteServerFile } from '../../../utils/fileUpload';
 import FilePreview from '../../../components/Common/FilePreview';
 
-const { TextArea } = Input;
 const { Option } = Select;
 
 interface ConsumableFormProps {
@@ -164,7 +163,7 @@ const ConsumableForm = ({ visible, record, mode, onCancel, onSave }: ConsumableF
           disabled={isView}
           style={{ marginTop: 16 }}
         >
-          <Divider orientation="left">基本信息</Divider>
+          <Divider>基本信息</Divider>
           
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
             <Form.Item
@@ -205,7 +204,7 @@ const ConsumableForm = ({ visible, record, mode, onCancel, onSave }: ConsumableF
             </Form.Item>
           </div>
 
-          <Divider orientation="left">耗材明细</Divider>
+          <Divider>耗材明细</Divider>
 
           <Form.List name="consumables">
             {(fields, { add, remove }) => (
@@ -249,7 +248,7 @@ const ConsumableForm = ({ visible, record, mode, onCancel, onSave }: ConsumableF
             )}
           </Form.List>
 
-          <Divider orientation="left">附件</Divider>
+          <Divider>附件</Divider>
 
           <Form.Item
             label="相关附件"
