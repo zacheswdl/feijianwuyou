@@ -241,9 +241,9 @@ const SatisfactionSurvey: React.FC = () => {
     <div>
       <PageHeader
         breadcrumbs={[
-          { label: '首页', path: '/' },
-          { label: '客户服务', path: '/customer-service' },
-          { label: '顾客满意度调查表' },
+          { title: '首页', path: '/' },
+          { title: '客户服务', path: '/customer-service' },
+          { title: '顾客满意度调查表' },
         ]}
       />
 
@@ -293,9 +293,6 @@ const SatisfactionSurvey: React.FC = () => {
           loading={loading}
           pagination={{
             pageSize: 10,
-            showSizeChanger: true,
-            showQuickJumper: true,
-            showTotal: (total: number) => `共 ${total} 条`,
           }}
           onView={handleView}
           onEdit={handleEdit}

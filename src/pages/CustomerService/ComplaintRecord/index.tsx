@@ -147,7 +147,7 @@ const ComplaintRecordPage: React.FC = () => {
 
   const searchFields = [
     {
-      type: 'rangePicker' as const,
+      type: 'dateRange' as const,
       label: '投诉日期',
       name: 'complaintDate',
     },
@@ -258,9 +258,9 @@ const ComplaintRecordPage: React.FC = () => {
     <div>
       <PageHeader
         breadcrumbs={[
-          { label: '首页', path: '/' },
-          { label: '客户服务', path: '/customer-service' },
-          { label: '投诉记录汇总' },
+          { title: '首页', path: '/' },
+          { title: '客户服务', path: '/customer-service' },
+          { title: '投诉记录汇总' },
         ]}
       />
 
@@ -312,7 +312,7 @@ const ComplaintRecordPage: React.FC = () => {
             current: 1,
             pageSize: 10,
             total: filteredData.length,
-            onChange: (page: number) => {},
+            onChange: () => {},
           }}
           onView={handleView}
           onEdit={handleEdit}
