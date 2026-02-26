@@ -3,8 +3,6 @@ import { Card, Button, Space, Tag, message, Statistic, Row, Col } from 'antd';
 import {
   PlusOutlined,
   DeleteOutlined,
-  EditOutlined,
-  EyeOutlined,
   DownloadOutlined,
 } from '@ant-design/icons';
 import PageHeader from '../../../components/Common/PageHeader';
@@ -188,8 +186,8 @@ const DevicePeriodCheck: React.FC = () => {
     setEditingRecord({});
   };
 
-  const handleDelete = (record: any) => {
-    const newData = deleteItem(MODULE_KEY, record.id);
+  const handleDelete = async (record: any) => {
+    const newData = await deleteItem(MODULE_KEY, record.id);
     message.success('删除成功');
     setData(newData);
     setFilteredData(newData);

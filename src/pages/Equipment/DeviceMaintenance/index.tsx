@@ -7,6 +7,7 @@ import DataTable from '../../../components/Common/DataTable';
 import type { DeviceMaintenanceRecord } from '../../../types/index';
 import { loadData, saveData, MODULE_KEYS } from '../../../utils/storage';
 import MaintenanceForm from './MaintenanceForm';
+import dayjs from 'dayjs';
 
 const DeviceMaintenance: React.FC = () => {
   const [data, setData] = useState<DeviceMaintenanceRecord[]>([]);
@@ -141,7 +142,7 @@ const DeviceMaintenance: React.FC = () => {
 
   const searchFields = [
     {
-      type: 'rangePicker' as const,
+      type: 'dateRange' as const,
       label: '维护日期',
       name: 'maintenanceDate',
     },
@@ -237,9 +238,9 @@ const DeviceMaintenance: React.FC = () => {
     <div>
       <PageHeader
         breadcrumbs={[
-          { label: '首页', path: '/' },
-          { label: '设备管理', path: '/equipment' },
-          { label: '仪器设备维修及维护' },
+          { title: '首页', path: '/' },
+          { title: '设备管理', path: '/equipment' },
+          { title: '仪器设备维修及维护' },
         ]}
       />
 
@@ -291,7 +292,7 @@ const DeviceMaintenance: React.FC = () => {
             current: 1,
             pageSize: 10,
             total: filteredData.length,
-            onChange: (page: number) => {},
+            onChange: () => {},
           }}
           onView={handleView}
           onEdit={handleEdit}
