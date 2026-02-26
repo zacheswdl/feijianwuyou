@@ -1,6 +1,6 @@
 import React from 'react';
 import { Breadcrumb } from 'antd';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 interface BreadcrumbItem {
   title: string;
@@ -12,9 +12,7 @@ interface PageHeaderProps {
 }
 
 const PageHeader: React.FC<PageHeaderProps> = ({ breadcrumbs }) => {
-  const location = useLocation();
-
-  const items = breadcrumbs.map((item, index) => ({
+  const items = breadcrumbs.map((item) => ({
     title: item.path ? (
       <Link to={item.path}>{item.title}</Link>
     ) : (

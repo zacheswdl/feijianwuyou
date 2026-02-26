@@ -7,7 +7,6 @@ import DataTable from '../../../components/Common/DataTable';
 import type { ComplaintRecord } from '../../../types/index';
 import { loadData, saveData, MODULE_KEYS } from '../../../utils/storage';
 import ComplaintForm from './ComplaintForm';
-import dayjs from 'dayjs';
 
 const ComplaintRecordPage: React.FC = () => {
   const [data, setData] = useState<ComplaintRecord[]>([]);
@@ -18,9 +17,9 @@ const ComplaintRecordPage: React.FC = () => {
   const [modalMode, setModalMode] = useState<'add' | 'edit' | 'view'>('add');
   const [selectedRows, setSelectedRows] = useState<ComplaintRecord[]>([]);
 
-  const loadTableData = useCallback(() => {
+  const loadTableData = useCallback(async () => {
     setLoading(true);
-    const result = loadData<ComplaintRecord>(MODULE_KEYS.COMPLAINT_RECORD);
+    const result = await loadData<ComplaintRecord>(MODULE_KEYS.COMPLAINT_RECORD);
     setData(result);
     setFilteredData(result);
     setLoading(false);

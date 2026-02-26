@@ -13,12 +13,6 @@ import {
   FileSearchOutlined,
   AuditOutlined,
   ControlOutlined,
-  BookOutlined,
-  FileTextOutlined,
-  SafetyOutlined,
-  EnvironmentOutlined,
-  DownloadOutlined,
-  SettingOutlined,
   FileOutlined,
   CustomerServiceOutlined,
 } from '@ant-design/icons';
