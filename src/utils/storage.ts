@@ -36,10 +36,17 @@ export const MODULE_KEYS = {
   AUDIT_CHECKLIST: 'internal_audit_checklist',
   AUDIT_REPORT: 'internal_audit_report',
   AUDIT_RECTIFICATION: 'internal_audit_rectification',
+  REVIEW_ANNUAL_PLAN: 'management_review_annual_plan',
+  REVIEW_IMPLEMENTATION: 'management_review_implementation',
+  REVIEW_INPUT: 'management_review_input',
+  REVIEW_MEETING: 'management_review_meeting',
+  REVIEW_REPORT: 'management_review_report',
+  STANDARD_SEARCH: 'standard_service_search',
+  STANDARD_SUBSCRIPTION: 'standard_service_subscription',
 };
 
 // 配置：是否使用 Supabase（需要配置 VITE_SUPABASE_URL 和 VITE_SUPABASE_ANON_KEY 环境变量）
-export const USE_SUPABASE = false;
+export const USE_SUPABASE = true;
 
 // 获取所有数据
 export const getAllData = () => {

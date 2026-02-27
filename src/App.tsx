@@ -34,6 +34,14 @@ import AuditReport from './pages/InternalAudit/Report';
 import AuditRectification from './pages/InternalAudit/Rectification';
 import AuditQuery from './pages/InternalAudit/Query';
 import AuditDownload from './pages/InternalAudit/Download';
+import ReviewAnnualPlan from './pages/ManagementReview/AnnualPlan';
+import ReviewImplementation from './pages/ManagementReview/Implementation';
+import ReviewInput from './pages/ManagementReview/Input';
+import ReviewMeeting from './pages/ManagementReview/Meeting';
+import ReviewReport from './pages/ManagementReview/Report';
+import ReviewDownload from './pages/ManagementReview/Download';
+import StandardSearch from './pages/StandardService/Search';
+import StandardSubscribe from './pages/StandardService/Subscribe';
 
 function App() {
   return (
@@ -81,6 +89,16 @@ function App() {
           <Route path="/internal-audit/rectification" element={<AuditRectification />} />
           <Route path="/internal-audit/query" element={<AuditQuery />} />
           <Route path="/internal-audit/download" element={<AuditDownload />} />
+          {/* 管理评审管理 */}
+          <Route path="/management-review/annual-plan" element={<ReviewAnnualPlan />} />
+          <Route path="/management-review/implementation" element={<ReviewImplementation />} />
+          <Route path="/management-review/input" element={<ReviewInput />} />
+          <Route path="/management-review/meeting" element={<ReviewMeeting />} />
+          <Route path="/management-review/report" element={<ReviewReport />} />
+          <Route path="/management-review/download" element={<ReviewDownload />} />
+          {/* 标准服务 */}
+          <Route path="/standard-service/search" element={<StandardSearch />} />
+          <Route path="/standard-service/subscribe" element={<StandardSubscribe />} />
         </Route>
       </Routes>
     </Router>

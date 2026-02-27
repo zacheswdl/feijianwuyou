@@ -255,3 +255,121 @@ export type AuditNonconformityRecord = AuditNonconformity;
 export type AuditChecklistRecord = AuditChecklist;
 export type AuditReportRecord = AuditReport;
 export type AuditRectificationRecord = AuditRectification;
+
+// 管理评审年度计划
+export interface ReviewAnnualPlan {
+  id: string;
+  planName: string;
+  planYear: string;
+  reviewObjective: string;
+  reviewScope: string;
+  plannedDate: string;
+  organizer: string;
+  participants: string;
+  status: '待执行' | '进行中' | '已完成' | '已取消';
+  remark?: string;
+  createTime?: string;
+}
+
+// 管理评审实施计划
+export interface ReviewImplementation {
+  id: string;
+  planName: string;
+  reviewDate: string;
+  reviewLocation: string;
+  chairperson: string;
+  participants: string;
+  reviewItems: string;
+  preparationRequirements: string;
+  status: '待评审' | '评审中' | '已完成';
+  remark?: string;
+  createTime?: string;
+}
+
+// 管理评审输入材料
+export interface ReviewInput {
+  id: string;
+  materialName: string;
+  materialType: '审核结果' | '客户反馈' | '纠正措施' | '改进建议' | '资源需求' | '风险评估' | '其他';
+  submitDate: string;
+  submitter: string;
+  department: string;
+  materialContent: string;
+  status: '待提交' | '已提交' | '已采纳';
+  remark?: string;
+  createTime?: string;
+}
+
+// 管理评审会议记录
+export interface ReviewMeeting {
+  id: string;
+  meetingNo: string;
+  meetingDate: string;
+  meetingLocation: string;
+  chairperson: string;
+  attendees: string;
+  meetingContent: string;
+  decisions: string;
+  actionItems: string;
+  recorder: string;
+  remark?: string;
+  createTime?: string;
+}
+
+// 管理评审报告
+export interface ReviewReport {
+  id: string;
+  reportNo: string;
+  reportName: string;
+  reviewDate: string;
+  reviewConclusion: string;
+  improvementMeasures: string;
+  resourceRequirements: string;
+  responsiblePerson: string;
+  completionDate: string;
+  approver: string;
+  approveDate: string;
+  status: '草稿' | '待审批' | '已审批';
+  remark?: string;
+  createTime?: string;
+}
+
+// 标准查新
+export interface StandardSearch {
+  id: string;
+  standardNo: string;
+  standardName: string;
+  publishDate: string;
+  implementDate: string;
+  standardStatus: '现行' | '即将实施' | '已废止' | '被替代';
+  replacedBy?: string;
+  searchDate: string;
+  searcher: string;
+  department: string;
+  remark?: string;
+  createTime?: string;
+}
+
+// 标准查新订阅
+export interface StandardSubscription {
+  id: string;
+  subscriberName: string;
+  department: string;
+  subscribeType: '新标准发布' | '标准修订' | '标准废止' | '全部';
+  subscribeScope: string;
+  contactEmail: string;
+  contactPhone: string;
+  subscribeDate: string;
+  status: '有效' | '已暂停' | '已取消';
+  lastNotifyDate?: string;
+  remark?: string;
+  createTime?: string;
+}
+
+export type ReviewAnnualPlanRecord = ReviewAnnualPlan;
+export type ReviewImplementationRecord = ReviewImplementation;
+export type ReviewInputRecord = ReviewInput;
+export type ReviewMeetingRecord = ReviewMeeting;
+export type ReviewReportRecord = ReviewReport;
+export type StandardSearchRecord = StandardSearch;
+export type StandardSubscriptionRecord = StandardSubscription;
