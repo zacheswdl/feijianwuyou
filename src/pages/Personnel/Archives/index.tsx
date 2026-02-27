@@ -317,14 +317,14 @@ const PersonnelArchives: React.FC = () => {
   };
 
   // 保存数据
-  const handleSave = (values: any) => {
+  const handleSave = async (values: any) => {
     if (formMode === 'edit') {
       // 编辑模式
-      updateItem(MODULE_KEY, editingRecord.id, values);
+      await updateItem(MODULE_KEY, editingRecord.id, values);
       message.success('编辑成功');
     } else if (formMode === 'add') {
       // 新增模式
-      addItem(MODULE_KEY, values);
+      await addItem(MODULE_KEY, values);
       message.success('新增成功');
     }
     setFormVisible(false);
@@ -337,8 +337,8 @@ const PersonnelArchives: React.FC = () => {
     setEditingRecord({});
   };
 
-  const handleDelete = (record: any) => {
-    const newData = deleteItem(MODULE_KEY, record.id);
+  const handleDelete = async (record: any) => {
+    const newData = await deleteItem(MODULE_KEY, record.id);
     message.success('删除成功');
     // 更新本地状态
     setData(newData);
