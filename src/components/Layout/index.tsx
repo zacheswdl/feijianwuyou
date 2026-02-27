@@ -108,8 +108,10 @@ const menuItems = [
     icon: <ControlOutlined />,
     label: '质量控制管理',
     children: [
-      { key: '/quality-control/plan', label: '质量控制计划' },
-      { key: '/quality-control/result', label: '质量控制结果' },
+      { key: '/quality-control/software-validation', label: '软件适用性确认' },
+      { key: '/quality-control/data-consistency', label: '数据一致性检查' },
+      { key: '/quality-control/typical-report', label: '典型报告' },
+      { key: '/quality-control/contract-review', label: '合同评审记录' },
     ],
   },
 

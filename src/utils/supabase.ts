@@ -1,8 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Supabase 项目配置
-const supabaseUrl = 'https://jfeptduvwzackxcgcqbx.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpmZXB0ZHV2d3phY2t4Y2djcWJ4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIxMDc4OTQsImV4cCI6MjA4NzY4Mzg5NH0.9UasiOzHhaUXNe6bKo8EM-uUvooWeyky8KHP-2tJGBA';
+// Supabase 项目配置 - 使用环境变量
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 
 // 创建 Supabase 客户端
 export const supabase = createClient(supabaseUrl, supabaseKey);

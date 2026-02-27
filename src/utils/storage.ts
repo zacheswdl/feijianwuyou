@@ -30,10 +30,16 @@ export const MODULE_KEYS = {
   PERSONNEL_SUPERVISION: 'personnel_supervision',
   DEVICE_PERIOD_CHECK: 'equipment_period_check',
   DEVICE_CALIBRATION: 'equipment_calibration',
+  AUDIT_PLAN: 'internal_audit_plan',
+  AUDIT_IMPLEMENTATION: 'internal_audit_implementation',
+  AUDIT_NONCONFORMITY: 'internal_audit_nonconformity',
+  AUDIT_CHECKLIST: 'internal_audit_checklist',
+  AUDIT_REPORT: 'internal_audit_report',
+  AUDIT_RECTIFICATION: 'internal_audit_rectification',
 };
 
-// 配置：是否使用 Supabase
-export const USE_SUPABASE = true; // 设置为 true 使用 Supabase，false 使用 localStorage
+// 配置：是否使用 Supabase（需要配置 VITE_SUPABASE_URL 和 VITE_SUPABASE_ANON_KEY 环境变量）
+export const USE_SUPABASE = false;
 
 // 获取所有数据
 export const getAllData = () => {

@@ -26,6 +26,14 @@ import TypicalReport from './pages/QualityControl/TypicalReport';
 import ContractReview from './pages/QualityControl/ContractReview';
 import SatisfactionSurvey from './pages/CustomerService/SatisfactionSurvey';
 import ComplaintRecord from './pages/CustomerService/ComplaintRecord';
+import AuditPlan from './pages/InternalAudit/Plan';
+import AuditImplementation from './pages/InternalAudit/Implementation';
+import AuditNonconformity from './pages/InternalAudit/Nonconformity';
+import AuditChecklist from './pages/InternalAudit/Checklist';
+import AuditReport from './pages/InternalAudit/Report';
+import AuditRectification from './pages/InternalAudit/Rectification';
+import AuditQuery from './pages/InternalAudit/Query';
+import AuditDownload from './pages/InternalAudit/Download';
 
 function App() {
   return (
@@ -64,6 +72,15 @@ function App() {
           {/* 客户服务 */}
           <Route path="/customer-service/satisfaction-survey" element={<SatisfactionSurvey />} />
           <Route path="/customer-service/complaint-record" element={<ComplaintRecord />} />
+          {/* 内部审核管理 */}
+          <Route path="/internal-audit/plan" element={<AuditPlan />} />
+          <Route path="/internal-audit/implementation" element={<AuditImplementation />} />
+          <Route path="/internal-audit/nonconformity" element={<AuditNonconformity />} />
+          <Route path="/internal-audit/checklist" element={<AuditChecklist />} />
+          <Route path="/internal-audit/report" element={<AuditReport />} />
+          <Route path="/internal-audit/rectification" element={<AuditRectification />} />
+          <Route path="/internal-audit/query" element={<AuditQuery />} />
+          <Route path="/internal-audit/download" element={<AuditDownload />} />
         </Route>
       </Routes>
     </Router>
