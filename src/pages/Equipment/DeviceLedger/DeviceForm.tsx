@@ -30,6 +30,36 @@ const DeviceForm = ({ visible, record, mode, onCancel, onSave }: DeviceFormProps
   const [previewFile, setPreviewFile] = useState<{ id: string; name: string } | null>(null);
   const [initialized, setInitialized] = useState(false);
 
+  // 监听查看验收记录的事件
+  useEffect(() => {
+    const handlePreviewAcceptance = (event: CustomEvent) => {
+      const { file } = event.detail;
+      if (file?.fileId) {
+        setPreviewFile({ id: file.fileId, name: file.name });
+        setPreviewVisible(true);
+      }
+    };
+
+    const handlePreviewCertificateForm = (event: CustomEvent) => {
+      const { files, currentIndex } = event.detail;
+      if (files && files.length > 0) {
+        const file = files[currentIndex || 0];
+        if (file?.fileId) {
+          setPreviewFile({ id: file.fileId, name: file.name });
+          setPreviewVisible(true);
+        }
+      }
+    };
+
+    window.addEventListener('previewAcceptance' as any, handlePreviewAcceptance as any);
+    window.addEventListener('previewCertificateForm' as any, handlePreviewCertificateForm as any);
+
+    return () => {
+      window.removeEventListener('previewAcceptance' as any, handlePreviewAcceptance as any);
+      window.removeEventListener('previewCertificateForm' as any, handlePreviewCertificateForm as any);
+    };
+  }, []);
+
   useEffect(() => {
     if (visible && !initialized) {
       setInitialized(true);

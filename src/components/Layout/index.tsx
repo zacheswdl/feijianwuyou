@@ -15,9 +15,11 @@ import {
   ControlOutlined,
   FileOutlined,
   CustomerServiceOutlined,
+  DatabaseOutlined,
 } from '@ant-design/icons';
-import { Layout, Menu, Button, Badge, Input, Avatar, theme } from 'antd';
+import { Layout, Menu, Button, Badge, Input, Avatar, theme, Space } from 'antd';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
+import DataManager from '../DataManager';
 
 const { Header, Sider, Content } = Layout;
 
@@ -137,6 +139,7 @@ const menuItems = [
 
 const AppLayout: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const [dataManagerVisible, setDataManagerVisible] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   
@@ -209,6 +212,14 @@ const AppLayout: React.FC = () => {
             />
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+            <Button
+              type="text"
+              icon={<DatabaseOutlined />}
+              onClick={() => setDataManagerVisible(true)}
+              title="数据管理"
+            >
+              数据管理
+            </Button>
             <Badge count={5} size="small">
               <BellOutlined style={{ fontSize: 20, cursor: 'pointer' }} />
             </Badge>
@@ -230,6 +241,11 @@ const AppLayout: React.FC = () => {
           <Outlet />
         </Content>
       </Layout>
+      
+      <DataManager
+        visible={dataManagerVisible}
+        onClose={() => setDataManagerVisible(false)}
+      />
     </Layout>
   );
 };
