@@ -46,7 +46,7 @@ export const MODULE_KEYS = {
 };
 
 // 配置：是否使用 Supabase（需要配置 VITE_SUPABASE_URL 和 VITE_SUPABASE_ANON_KEY 环境变量）
-export const USE_SUPABASE = true;
+export const USE_SUPABASE = false;
 
 // 获取所有数据
 export const getAllData = () => {

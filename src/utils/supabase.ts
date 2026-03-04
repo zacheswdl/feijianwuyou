@@ -1,21 +1,24 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-// Supabase 项目配置 - 使用环境变量
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 
-// 创建 Supabase 客户端
-export const supabase = createClient(supabaseUrl, supabaseKey);
+let supabase: SupabaseClient | null = null;
 
-// 数据类型定义
+if (supabaseUrl && supabaseKey) {
+  supabase = createClient(supabaseUrl, supabaseKey);
+}
+
 export interface BaseRecord {
   id: string;
   created_at?: string;
   updated_at?: string;
 }
 
-// 通用 CRUD 操作
 export const createRecord = async <T extends BaseRecord>(table: string, data: Omit<T, 'id' | 'created_at' | 'updated_at'>) => {
+  if (!supabase) {
+    throw new Error('Supabase 未配置');
+  }
   const { data: result, error } = await supabase
     .from(table)
     .insert({
@@ -35,6 +38,9 @@ export const createRecord = async <T extends BaseRecord>(table: string, data: Om
 };
 
 export const updateRecord = async <T extends BaseRecord>(table: string, id: string, data: Partial<T>) => {
+  if (!supabase) {
+    throw new Error('Supabase 未配置');
+  }
   const { data: result, error } = await supabase
     .from(table)
     .update({
@@ -54,6 +60,9 @@ export const updateRecord = async <T extends BaseRecord>(table: string, id: stri
 };
 
 export const deleteRecord = async (table: string, id: string) => {
+  if (!supabase) {
+    throw new Error('Supabase 未配置');
+  }
   const { error } = await supabase
     .from(table)
     .delete()
@@ -68,6 +77,9 @@ export const deleteRecord = async (table: string, id: string) => {
 };
 
 export const getRecords = async (table: string, filters?: Record<string, any>) => {
+  if (!supabase) {
+    throw new Error('Supabase 未配置');
+  }
   let query = supabase.from(table).select('*');
   
   if (filters) {
@@ -87,6 +99,9 @@ export const getRecords = async (table: string, filters?: Record<string, any>) =
 };
 
 export const getRecordById = async (table: string, id: string) => {
+  if (!supabase) {
+    throw new Error('Supabase 未配置');
+  }
   const { data, error } = await supabase
     .from(table)
     .select('*')
